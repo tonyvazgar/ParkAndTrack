@@ -36,9 +36,27 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         mapView.addAnnotation(pin)
     }
     
-    func askLocationDB() -> String {
+    func askLocationDB() {
+        print("Se ha invocado este método")
+        let request = MKDirections.Request()
+        request.source = MKMapItem(placemark: MKPlacemark(coordinate: mapView.userLocation.coordinate))
+        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: carLocation!))
+        request.requestsAlternateRoutes = true
+        request.transportType = .walking
         
-        return "Location"
+        let directions = MKDirections(request: request)
+        directions.calculate{
+            [unowned self] response, error
+            in
+            guard let unwrappedResponse = response
+                else {
+                    return
+            }
+            for route in unwrappedResponse.routes{
+                self.mapView.addOverlay(route.polyline)
+                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+            }
+        }
     }
     
     func saveLocation(latitude: Double, longitude: Double) {
