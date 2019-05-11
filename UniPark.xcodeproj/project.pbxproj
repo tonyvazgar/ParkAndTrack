@@ -1,0 +1,365 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		EA8F13B9224AEB81007513EA /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F13B8224AEB81007513EA /* User.swift */; };
+		EA8F13BB224AEB94007513EA /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F13BA224AEB94007513EA /* Location.swift */; };
+		EA8F13BD224AEC8C007513EA /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8F13BC224AEC8C007513EA /* Model.swift */; };
+		EAA0B836221931E000343340 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0B835221931E000343340 /* AppDelegate.swift */; };
+		EAA0B838221931E000343340 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0B837221931E000343340 /* FirstViewController.swift */; };
+		EAA0B83A221931E000343340 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAA0B839221931E000343340 /* SecondViewController.swift */; };
+		EAA0B83D221931E000343340 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA0B83B221931E000343340 /* Main.storyboard */; };
+		EAA0B842221931E100343340 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAA0B840221931E100343340 /* LaunchScreen.storyboard */; };
+		EABFA1D9221B407F0007EF44 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABFA1D8221B407F0007EF44 /* LoginViewController.swift */; };
+		EABFA1DB221B43F00007EF44 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABFA1DA221B43F00007EF44 /* RegisterViewController.swift */; };
+		EACCA876224C966D00FFCC25 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EACCA875224C966D00FFCC25 /* Assets.xcassets */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		EA8F13B8224AEB81007513EA /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		EA8F13BA224AEB94007513EA /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
+		EA8F13BC224AEC8C007513EA /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		EAA0B832221931E000343340 /* UniPark.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UniPark.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EAA0B835221931E000343340 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EAA0B837221931E000343340 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		EAA0B839221931E000343340 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		EAA0B83C221931E000343340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EAA0B841221931E100343340 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EAA0B843221931E100343340 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EABFA1D8221B407F0007EF44 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EABFA1DA221B43F00007EF44 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EACCA875224C966D00FFCC25 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EAA0B82F221931E000343340 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EAA0B829221931E000343340 = {
+			isa = PBXGroup;
+			children = (
+				EAA0B834221931E000343340 /* UniPark */,
+				EAA0B833221931E000343340 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EAA0B833221931E000343340 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EAA0B832221931E000343340 /* UniPark.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EAA0B834221931E000343340 /* UniPark */ = {
+			isa = PBXGroup;
+			children = (
+				EACCA875224C966D00FFCC25 /* Assets.xcassets */,
+				EAA0B835221931E000343340 /* AppDelegate.swift */,
+				EAA0B837221931E000343340 /* FirstViewController.swift */,
+				EAA0B839221931E000343340 /* SecondViewController.swift */,
+				EAA0B83B221931E000343340 /* Main.storyboard */,
+				EAA0B840221931E100343340 /* LaunchScreen.storyboard */,
+				EAA0B843221931E100343340 /* Info.plist */,
+				EABFA1D8221B407F0007EF44 /* LoginViewController.swift */,
+				EABFA1DA221B43F00007EF44 /* RegisterViewController.swift */,
+				EA8F13B8224AEB81007513EA /* User.swift */,
+				EA8F13BA224AEB94007513EA /* Location.swift */,
+				EA8F13BC224AEC8C007513EA /* Model.swift */,
+			);
+			path = UniPark;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EAA0B831221931E000343340 /* UniPark */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EAA0B846221931E100343340 /* Build configuration list for PBXNativeTarget "UniPark" */;
+			buildPhases = (
+				EAA0B82E221931E000343340 /* Sources */,
+				EAA0B82F221931E000343340 /* Frameworks */,
+				EAA0B830221931E000343340 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = UniPark;
+			productName = UniPark;
+			productReference = EAA0B832221931E000343340 /* UniPark.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EAA0B82A221931E000343340 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = "Tony Vazgar";
+				TargetAttributes = {
+					EAA0B831221931E000343340 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+				};
+			};
+			buildConfigurationList = EAA0B82D221931E000343340 /* Build configuration list for PBXProject "UniPark" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EAA0B829221931E000343340;
+			productRefGroup = EAA0B833221931E000343340 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EAA0B831221931E000343340 /* UniPark */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EAA0B830221931E000343340 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EAA0B842221931E100343340 /* LaunchScreen.storyboard in Resources */,
+				EACCA876224C966D00FFCC25 /* Assets.xcassets in Resources */,
+				EAA0B83D221931E000343340 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EAA0B82E221931E000343340 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EABFA1D9221B407F0007EF44 /* LoginViewController.swift in Sources */,
+				EABFA1DB221B43F00007EF44 /* RegisterViewController.swift in Sources */,
+				EA8F13B9224AEB81007513EA /* User.swift in Sources */,
+				EAA0B83A221931E000343340 /* SecondViewController.swift in Sources */,
+				EAA0B836221931E000343340 /* AppDelegate.swift in Sources */,
+				EAA0B838221931E000343340 /* FirstViewController.swift in Sources */,
+				EA8F13BB224AEB94007513EA /* Location.swift in Sources */,
+				EA8F13BD224AEC8C007513EA /* Model.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		EAA0B83B221931E000343340 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAA0B83C221931E000343340 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EAA0B840221931E100343340 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EAA0B841221931E100343340 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EAA0B844221931E100343340 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EAA0B845221931E100343340 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EAA0B847221931E100343340 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UC654Y56KK;
+				INFOPLIST_FILE = UniPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tonyvazgar.Park-Track";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EAA0B848221931E100343340 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = UC654Y56KK;
+				INFOPLIST_FILE = UniPark/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.tonyvazgar.Park-Track";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EAA0B82D221931E000343340 /* Build configuration list for PBXProject "UniPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAA0B844221931E100343340 /* Debug */,
+				EAA0B845221931E100343340 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAA0B846221931E100343340 /* Build configuration list for PBXNativeTarget "UniPark" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EAA0B847221931E100343340 /* Debug */,
+				EAA0B848221931E100343340 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EAA0B82A221931E000343340 /* Project object */;
+}
