@@ -68,12 +68,9 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func saveLocation(latitude: Double, longitude: Double) {
-        var latitude = String(latitude)
-        var longitud = String(longitude)
-        
-        //Aqui se va a hacer el insert a la base de datos
-        print(type(of: latitude), "--",longitude)
-        
+        let latitude = String(latitude)
+        let longitud = String(longitude)
+        Model.insertIntoLocation(latitud: latitude, longitud: longitud)
     }
     
     // set initial location in UDLAP
@@ -96,6 +93,11 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         if manager.responds(to: #selector(CLLocationManager.requestWhenInUseAuthorization)){
             manager.requestWhenInUseAuthorization()
         }
+        
+        Model.crearDB("parkandtrack")
+        Model.openDB()
+        Model.execute("CREATE TABLE IF NOT EXISTS User (id TEXT, password TEXT)")
+        Model.execute("CREATE TABLE IF NOT EXISTS Location (latitud DOUBLE, longitud DOUBLE)")
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {

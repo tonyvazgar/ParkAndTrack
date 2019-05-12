@@ -18,15 +18,27 @@ public class Model {
     static var dbURL: URL? = nil
     
     public static func crearDB(_ aName: String){
+        Model.dbURL = try!
+            FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false)
+        Model.dbURL = Model.dbURL?.appendingPathComponent(aName + ".sqlite")
+        print("La BDDs se creó en: \(Model.dbURL!)")
         
     }
     
     public static func openDB(){
-        
+        if (sqlite3_open(Model.dbURL!.path, &Model.dbPointer) != SQLITE_OK) {
+            print("Error abriendo la BDDs")
+        }else{
+            print("BDDs abierta!")
+        }
     }
     
     public static func execute(_ aStatement: String){
-        
+        if(sqlite3_exec(Model.dbPointer, aStatement, nil, nil, nil) != SQLITE_OK){
+            print("error excecuting SQL statement: \(String(cString: sqlite3_errmsg(Model.dbPointer)!))")
+        }else{
+            print("SQL statement excecuted: \(aStatement)")
+        }
     }
     
     static func getResultSetLocations() -> Array<Location> {
@@ -46,4 +58,44 @@ public class Model {
         
     }
     
+    public static func insertIntoLocation(latitud: String, longitud: String){
+        let query = "INSERT INTO Location (latitud, longitud) VALUES (?,?)"
+        print("La query es --> ", query)
+        var errMessage: String
+        if querylista(query: query) {
+            if sqlite3_bind_text(statementPointer, 1, latitud, -1, nil) != SQLITE_OK{
+                errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
+                print("Faiulure binding latitud: \(errMessage)")
+                return
+            }else{
+                print("Binding name value.... OKI...")
+            }
+            if sqlite3_bind_int(statementPointer, 2, (longitud as NSString).intValue) != SQLITE_OK {
+                errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
+                print("Failure binding longitud: \(errMessage)")
+                return
+            }else{
+                print("Binding age OK")
+            }
+            if sqlite3_step(statementPointer) != SQLITE_DONE{
+                errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
+                print("Faiulure inserting record: \(errMessage)")
+                return
+            }else{
+                print("Record inserted :)")
+            }
+        }
+    }
+    
+    private static func querylista(query: String) -> Bool {
+        var queryIsPrepared = false
+        if sqlite3_prepare(dbPointer, query, -1, &statementPointer, nil) != SQLITE_OK{
+            let errorMessage = String(cString: sqlite3_errmsg(dbPointer)!)
+            print("Error preparing query: " + query)
+            print(errorMessage)
+        } else{
+            queryIsPrepared = true
+        }
+        return queryIsPrepared
+    }
 }
