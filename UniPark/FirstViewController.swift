@@ -25,7 +25,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func obtenerUbicacionDevice() {
-        carLocation = mapView.userLocation.coordinate
+        carLocation = CLLocationCoordinate2D(latitude: 19.006680, longitude: -98.267865)//mapView.userLocation.coordinate
         saveLocation(latitude: carLocation!.latitude, longitude: carLocation!.longitude)
         let pin = MKPointAnnotation()
         pin.coordinate = carLocation!
@@ -40,41 +40,52 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         print("Se ha invocado este método")
         let request = MKDirections.Request()
         request.source = MKMapItem(placemark: MKPlacemark(coordinate: mapView.userLocation.coordinate))
-        request.destination = MKMapItem(placemark: MKPlacemark(coordinate: carLocation!))
-        request.requestsAlternateRoutes = true
-        request.transportType = .walking
-        
-        let directions = MKDirections(request: request)
-        directions.calculate{
-            [unowned self] response, error
-            in
-            guard let unwrappedResponse = response
-                else {
-                    return
+        if let carlocation = carLocation {
+            request.destination = MKMapItem(placemark: MKPlacemark(coordinate: carlocation))
+            
+//            request.requestsAlternateRoutes = true
+            request.transportType = .automobile
+            
+            let directions = MKDirections(request: request)
+            directions.calculate{
+                [unowned self] response, error
+                in
+                guard let unwrappedResponse = response
+                    else {
+                        return
+                }
+                for route in unwrappedResponse.routes{
+                    self.mapView.addOverlay(route.polyline)
+                    self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                }
             }
-            for route in unwrappedResponse.routes{
-                self.mapView.addOverlay(route.polyline)
-                self.mapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-            }
+        } else {
+            let alert = UIAlertController(title: "Error while finding your 🚘", message: "You must first save your location", preferredStyle: .alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
         }
     }
     
     func saveLocation(latitude: Double, longitude: Double) {
         var latitude = String(latitude)
         var longitud = String(longitude)
+        
         //Aqui se va a hacer el insert a la base de datos
         print(type(of: latitude), "--",longitude)
         
     }
     
     // set initial location in UDLAP
-    let initialLocation = CLLocation(latitude: 19.0540, longitude: -98.2822)
-    let regionRadius: CLLocationDistance = 500
+    let initialLocation = CLLocation(latitude: 18.951662, longitude: -98.285960)
+    let regionRadius: CLLocationDistance = 5000
     
     func centerMapOnLocation(location: CLLocation) {
         let coordinateRegion = MKCoordinateRegion(center: location.coordinate, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -86,8 +97,15 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             manager.requestWhenInUseAuthorization()
         }
     }
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(polyline: overlay as! MKPolyline)
+        renderer.strokeColor = UIColor.red
+        renderer.lineWidth = 2.0
+        return renderer
+    }
     func mapView(_ mapView: MKMapView, didUpdate userLocation: MKUserLocation) {
-        let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 700, longitudinalMeters: 700)
+        let region = MKCoordinateRegion(center: userLocation.coordinate, latitudinalMeters: 1000, longitudinalMeters: 1000)
         mapView.setRegion(mapView.regionThatFits(region), animated: true)
     }
 }
