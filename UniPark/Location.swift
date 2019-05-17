@@ -14,11 +14,11 @@ class Location {
      */
     var latitud: String
     var longitud: String
-    var id_user: String
+    //var id_user: String
     
     
-    init(_ id: String, _ lat: String, _ long: String) {
-        id_user = id
+    init(_ lat: String, _ long: String) {
+        //id_user = id
         latitud = lat
         longitud = long
     }

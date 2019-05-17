@@ -37,7 +37,7 @@ public class Model {
         if(sqlite3_exec(Model.dbPointer, aStatement, nil, nil, nil) != SQLITE_OK){
             print("error excecuting SQL statement: \(String(cString: sqlite3_errmsg(Model.dbPointer)!))")
         }else{
-            print("SQL statement excecuted: \(aStatement)")
+//            print("SQL statement excecuted: \(aStatement)")
         }
     }
     
@@ -68,14 +68,12 @@ public class Model {
                 print("Faiulure binding latitud: \(errMessage)")
                 return
             }else{
-                print("Binding name value.... OKI...")
+//                print("Binding name value.... OKI...")
             }
             if sqlite3_bind_int(statementPointer, 2, (longitud as NSString).intValue) != SQLITE_OK {
                 errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
                 print("Failure binding longitud: \(errMessage)")
                 return
-            }else{
-                print("Binding age OK")
             }
             if sqlite3_step(statementPointer) != SQLITE_DONE{
                 errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
@@ -97,5 +95,31 @@ public class Model {
             queryIsPrepared = true
         }
         return queryIsPrepared
+    }
+    
+    public static func selectAllLocations(){
+        let query = "SELECT * FROM Location"
+        if querylista(query: query){
+            locations = getResultSet()
+        }
+        for l in locations{
+            print("\(l.latitud)|\(l.longitud)")
+        }
+    }
+    
+    static func getResultSet() -> Array<Location>{
+        var resultSet :Array<Location>
+        var latitud : String
+        var longitud: String
+        
+        resultSet = []
+        
+        while(sqlite3_step(statementPointer) == SQLITE_ROW){
+            //id = sqlite3_column_int(statementPointer, 0)
+            latitud  = String(cString: sqlite3_column_text(statementPointer, 0))
+            longitud = String(cString: sqlite3_column_text(statementPointer, 1))
+            resultSet.append(Location(latitud, longitud))
+        }//end while
+        return resultSet
     }
 }
