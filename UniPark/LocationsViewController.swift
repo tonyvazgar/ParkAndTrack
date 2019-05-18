@@ -87,8 +87,8 @@ class LocationsViewController: UITableViewController{
         
         item = Model.locations[indexPath.row]
         
-        cell.latitudLabel.text  = "Latitud:\(item.latitud)"
-        cell.longitudLabel.text = "Longitud:\(item.longitud)"
+        cell.latitudLabel.text  = "Latitud:       \(item.latitud)"
+        cell.longitudLabel.text = "Longitud: \(item.longitud)"
         
         return cell
     }
