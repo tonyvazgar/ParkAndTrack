@@ -12,28 +12,35 @@ class LoginViewController: UIViewController {
 
     @IBOutlet weak var userTextfield: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
+    static var username: String = ""
     
     @IBAction func singInButton(_ sender: Any) {
-        if(loginDB(user: userTextfield.text!, pass: passwordTextField.text!)) {
-            
-        }else{
-            
-        }
+        Model.insertInto(name: userTextfield.text!)
+        LoginViewController.username = userTextfield.text!
     }
     
-    func loginDB(user: String, pass: String) -> Bool{
+    func loginDB(user: String) -> Bool{
         var exists: Bool
-        exists = false
+        exists = true
         /*
          * Código para autenticar con BDs
          */
         return exists
     }
+    public func getUsername() -> String{
+        return userTextfield.text!
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.hideKeyboardWhenTappedAround() 
+        self.hideKeyboardWhenTappedAround()
+        
+        Model.crearDB("parkandtrack")
+        Model.openDB()
+        Model.execute("CREATE TABLE IF NOT EXISTS User (id TEXT)")
+        //        Model.execute("DROP TABLE Location")
+        Model.execute("CREATE TABLE IF NOT EXISTS Location (latitud TEXT, longitud TEXT)")
     }
 }
 

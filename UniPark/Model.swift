@@ -53,9 +53,26 @@ public class Model {
         return resultSet
     }
     
-    public static func insertInto(name: String, pass: String){
-     
-        
+    public static func insertInto(name: String){
+        let query = "INSERT INTO User (id) VALUES (?)"
+        print("La query es --> ", query)
+        var errMessage: String
+        if querylista(query: query) {
+            if sqlite3_bind_text(statementPointer, 1, name, -1, nil) != SQLITE_OK{
+                errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
+                print("Faiulure binding latitud: \(errMessage)")
+                return
+            }else{
+                //                print("Binding name value.... OKI...")
+            }
+            if sqlite3_step(statementPointer) != SQLITE_DONE{
+                errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
+                print("Faiulure inserting record: \(errMessage)")
+                return
+            }else{
+                print("Record inserted :)")
+            }
+        }
     }
     
     public static func insertIntoLocation(latitud: String, longitud: String){

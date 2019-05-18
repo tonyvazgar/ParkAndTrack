@@ -10,6 +10,7 @@ import UIKit
 
 class LocationsViewController: UITableViewController{
     
+    @IBOutlet weak var usenameLabel: UILabel!
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
 //        navigationItem.leftBarButtonItem = editButtonItem
@@ -41,6 +42,7 @@ class LocationsViewController: UITableViewController{
         Model.selectAllLocations()
         addLocationsFromDataBase()
         print(tableView)
+        usenameLabel.text = "Hello \(LoginViewController.username)!"
     }
     
     override func viewWillAppear(_ animated: Bool){

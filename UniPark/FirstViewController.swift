@@ -90,11 +90,6 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
             manager.requestWhenInUseAuthorization()
         }
         
-        Model.crearDB("parkandtrack")
-        Model.openDB()
-        Model.execute("CREATE TABLE IF NOT EXISTS User (id TEXT, password TEXT)")
-//        Model.execute("DROP TABLE Location")
-        Model.execute("CREATE TABLE IF NOT EXISTS Location (latitud TEXT, longitud TEXT)")
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
