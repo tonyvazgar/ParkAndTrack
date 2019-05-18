@@ -31,7 +31,7 @@ class DetailMapViewController: UIViewController, UITextFieldDelegate, MKMapViewD
     
     var item: Location! {
         didSet {
-            navigationItem.title = item.latitud
+            navigationItem.title = "\(item.latitud), \(item.longitud)"
         }
     }
     
@@ -52,13 +52,14 @@ class DetailMapViewController: UIViewController, UITextFieldDelegate, MKMapViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //Actualizar el view
-//        nameField.text = item.name
-//        serialNumberField.text = item.serialNumber
-//        valueField.text = numberFormatter.string(from: NSNumber(value: item.value))
-//        dateLabel.text = dateFormatter.string(from: item.dateCreated)
-//
-//        PONER EL PIN CON LA LOCALIZADA
+        var lat = Double(item.latitud)!
+        var lon = Double(item.longitud)!
+        print("\(lat)-----------.\(lon)")
+        let initialLocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+        let pin = MKPointAnnotation()
+        pin.coordinate = initialLocation
+        pin.title = "You was here!"
+        map.addAnnotation(pin)
     }
     
     override func viewWillDisappear(_ animated: Bool) {

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Location {
+class Location:NSObject {
     /*
      *Aqui va el código de la clase Location
      */

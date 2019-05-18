@@ -13,7 +13,7 @@ public class Model {
     
     static var dbPointer: OpaquePointer? = nil
     static var statementPointer: OpaquePointer? = nil
-    static var locations = Array<Location>()
+    static var locations: Array<Location> = []
     static var users = Array<User>()
     static var dbURL: URL? = nil
     
@@ -58,19 +58,19 @@ public class Model {
         
     }
     
-    public static func insertIntoLocation(latitud: String, longitud: String){
+    public static func insertIntoLocation(latitud: Double, longitud: Double){
         let query = "INSERT INTO Location (latitud, longitud) VALUES (?,?)"
         print("La query es --> ", query)
         var errMessage: String
         if querylista(query: query) {
-            if sqlite3_bind_text(statementPointer, 1, latitud, -1, nil) != SQLITE_OK{
+            if sqlite3_bind_double(statementPointer, 1, latitud) != SQLITE_OK{
                 errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
                 print("Faiulure binding latitud: \(errMessage)")
                 return
             }else{
 //                print("Binding name value.... OKI...")
             }
-            if sqlite3_bind_int(statementPointer, 2, (longitud as NSString).intValue) != SQLITE_OK {
+            if sqlite3_bind_double(statementPointer, 1, longitud) != SQLITE_OK{
                 errMessage = String(cString: sqlite3_errmsg(dbPointer)!)
                 print("Failure binding longitud: \(errMessage)")
                 return
@@ -116,8 +116,10 @@ public class Model {
         
         while(sqlite3_step(statementPointer) == SQLITE_ROW){
             //id = sqlite3_column_int(statementPointer, 0)
-            latitud  = String(cString: sqlite3_column_text(statementPointer, 0))
-            longitud = String(cString: sqlite3_column_text(statementPointer, 1))
+            //latitud  = String(cString: sqlite3_column_text(statementPointer, 0))
+            latitud = String(sqlite3_column_double(statementPointer, -1))
+            //longitud = String(cString: sqlite3_column_text(statementPointer, 0))
+            longitud = String(sqlite3_column_double(statementPointer, 0))
             resultSet.append(Location(latitud, longitud))
         }//end while
         return resultSet
@@ -131,5 +133,10 @@ public class Model {
             locations.remove(at: fromIndex)
             locations.insert(movedItem, at: toIndex)
         }
+    }
+}
+extension Array where Element: Equatable {
+    func indexes(of element: Element) -> [Int] {
+        return self.enumerated().filter({ element == $0.element }).map({ $0.offset })
     }
 }

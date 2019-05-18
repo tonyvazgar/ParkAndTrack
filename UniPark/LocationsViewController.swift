@@ -22,13 +22,17 @@ class LocationsViewController: UITableViewController{
     
     private func addLocationsFromDataBase(){
         var indexPath: IndexPath
-        for ip in 0..<Model.locations.count {
-            
-            indexPath = IndexPath(row: ip, section: 0)
-            //Insert this new row into the table view, with animation
+        /*
+         *Updating the view
+         *Figure out where that item is in the array
+         */
+        for l in Model.locations {
+            let index = Model.locations.indexes(of: l)[0]
+            indexPath = IndexPath(row: index, section: 0)
+            print(index)
+                //Insert this new row into the table view, with animation
             tableView.insertRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
-        
     }
     
     override func viewDidLoad() {
@@ -36,6 +40,7 @@ class LocationsViewController: UITableViewController{
         initializeView()
         Model.selectAllLocations()
         addLocationsFromDataBase()
+        print(tableView)
     }
     
     override func viewWillAppear(_ animated: Bool){
@@ -46,7 +51,6 @@ class LocationsViewController: UITableViewController{
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
-        print("llegandoaaaaa")
         switch segue.identifier {
         case "map"?:
             //Figure out wich row was just tapped
@@ -62,13 +66,13 @@ class LocationsViewController: UITableViewController{
     }
     
     
+    
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         Model.moveItem(fromIndex: sourceIndexPath.row, toIndex: destinationIndexPath.row)
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int{
-        let size = Model.locations.count
-        return size
+        return Model.locations.count
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -83,8 +87,8 @@ class LocationsViewController: UITableViewController{
         
         item = Model.locations[indexPath.row]
         
-        cell.latitudLabel.text  = "Latitud: \(item.latitud)"
-        cell.longitudLabel.text = "Longitud: \(item.longitud)"
+        cell.latitudLabel.text  = "Latitud:\(item.latitud)"
+        cell.longitudLabel.text = "Longitud:\(item.longitud)"
         
         return cell
     }
