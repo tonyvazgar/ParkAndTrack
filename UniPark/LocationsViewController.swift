@@ -17,7 +17,7 @@ class LocationsViewController: UITableViewController{
     
     private func initializeView(){
         tableView.rowHeight = UITableView.automaticDimension
-        tableView.estimatedRowHeight = 2
+        tableView.estimatedRowHeight = 6
     }
     
     private func addLocationsFromDataBase(){

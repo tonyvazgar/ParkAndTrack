@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -262,17 +263,17 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.666666666666664"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="OUW-hG-Xk1">
-                                            <rect key="frame" x="125.66666666666667" y="11.666666666666666" width="162.66666666666663" height="20.333333333333336"/>
+                                        <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" distribution="equalCentering" alignment="top" spacingType="standard" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OUW-hG-Xk1">
+                                            <rect key="frame" x="169" y="-0.33333333333333215" width="76.333333333333314" height="44.333333333333329"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitud: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PO8-7v-Zku">
-                                                    <rect key="frame" x="0.0" y="0.0" width="76.333333333333329" height="20.333333333333332"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="62.333333333333336" height="20.333333333333332"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitud: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeE-G9-1Oh">
-                                                    <rect key="frame" x="86.333333333333343" y="0.0" width="76.333333333333343" height="20.333333333333332"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitud: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SeE-G9-1Oh">
+                                                    <rect key="frame" x="0.0" y="24" width="76.333333333333329" height="20.333333333333329"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -281,8 +282,8 @@
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="OUW-hG-Xk1" firstAttribute="centerY" secondItem="yR8-QZ-dqU" secondAttribute="centerY" id="Hdx-Vg-kAh"/>
-                                        <constraint firstItem="OUW-hG-Xk1" firstAttribute="centerX" secondItem="yR8-QZ-dqU" secondAttribute="centerX" id="SRd-Ti-k2x"/>
+                                        <constraint firstItem="OUW-hG-Xk1" firstAttribute="centerY" secondItem="yR8-QZ-dqU" secondAttribute="centerY" id="eSB-JN-wrG"/>
+                                        <constraint firstItem="OUW-hG-Xk1" firstAttribute="centerX" secondItem="yR8-QZ-dqU" secondAttribute="centerX" id="qIa-fK-B2X"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

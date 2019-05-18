@@ -50,16 +50,23 @@ class DetailMapViewController: UIViewController, UITextFieldDelegate, MKMapViewD
         return dateFormatter
     }()
     
+    let regionRadius: CLLocationDistance = 5000
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        var lat = Double(item.latitud)!
-        var lon = Double(item.longitud)!
+        let lat = Double(item.latitud)!
+        let lon = Double(item.longitud)!
         print("\(lat)-----------.\(lon)")
         let initialLocation = CLLocationCoordinate2D(latitude: lat, longitude: lon)
         let pin = MKPointAnnotation()
         pin.coordinate = initialLocation
         pin.title = "You was here!"
+        centerMapOnLocation(location: initialLocation)
         map.addAnnotation(pin)
+    }
+    func centerMapOnLocation(location: CLLocationCoordinate2D) {
+        let coordinateRegion = MKCoordinateRegion(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+        map.setRegion(coordinateRegion, animated: true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
