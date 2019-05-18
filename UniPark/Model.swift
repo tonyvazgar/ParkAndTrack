@@ -122,4 +122,14 @@ public class Model {
         }//end while
         return resultSet
     }
+    
+    public static func moveItem(fromIndex: Int, toIndex: Int){
+        //Haciendo un swap en el arreglo de Items
+        var movedItem: Location
+        if fromIndex != toIndex {
+            movedItem = locations[fromIndex]
+            locations.remove(at: fromIndex)
+            locations.insert(movedItem, at: toIndex)
+        }
+    }
 }

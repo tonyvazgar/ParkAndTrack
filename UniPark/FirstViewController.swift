@@ -26,7 +26,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     
     func obtenerUbicacionDevice() {
         carLocation = mapView.userLocation.coordinate  //CLLocationCoordinate2D(latitude: 19.006680, longitude: -98.267865)//
-        saveLocation(latitude: carLocation!.latitude, longitude: carLocation!.longitude)
+        saveLocation(latitude: carLocation!.latitude.description, longitude: carLocation!.longitude.description)
         let pin = MKPointAnnotation()
         pin.coordinate = carLocation!
         pin.title = "Your 🚘 is here!"
@@ -65,12 +65,8 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         }
     }
     
-    func saveLocation(latitude: Double, longitude: Double) {
-        let latitud = String(format:"%f", latitude)
-        let longitu = String(format:"%f", longitude)
-        print(type(of: latitud))
-        print(type(of: longitu))
-        Model.insertIntoLocation(latitud: latitud, longitud: longitu)
+    func saveLocation(latitude: String, longitude: String) {
+        Model.insertIntoLocation(latitud: latitude, longitud: longitude)
     }
     
     // set initial location in UDLAP
@@ -97,6 +93,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
         Model.crearDB("parkandtrack")
         Model.openDB()
         Model.execute("CREATE TABLE IF NOT EXISTS User (id TEXT, password TEXT)")
+//        Model.execute("DROP TABLE Location")
         Model.execute("CREATE TABLE IF NOT EXISTS Location (latitud DOUBLE, longitud DOUBLE)")
     }
     
