@@ -15,16 +15,15 @@ class LoginViewController: UIViewController {
     static var username: String = ""
     
     @IBAction func singInButton(_ sender: Any) {
-        Model.insertInto(name: userTextfield.text!)
-        LoginViewController.username = userTextfield.text!
+        let name = userTextfield.text!
+        loginDB(user: name)
     }
     
     func loginDB(user: String) -> Bool{
         var exists: Bool
         exists = true
-        /*
-         * Código para autenticar con BDs
-         */
+        Model.insertInto(name: user)
+        LoginViewController.username = user
         return exists
     }
     public func getUsername() -> String{
@@ -39,7 +38,7 @@ class LoginViewController: UIViewController {
         Model.crearDB("parkandtrack")
         Model.openDB()
         Model.execute("CREATE TABLE IF NOT EXISTS User (id TEXT)")
-        //        Model.execute("DROP TABLE Location")
+//        Model.execute("DROP TABLE Location")
         Model.execute("CREATE TABLE IF NOT EXISTS Location (latitud TEXT, longitud TEXT)")
     }
 }

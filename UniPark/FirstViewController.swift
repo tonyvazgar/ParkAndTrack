@@ -25,7 +25,7 @@ class FirstViewController: UIViewController, MKMapViewDelegate, CLLocationManage
     }
     
     func obtenerUbicacionDevice() {
-        carLocation =  mapView.userLocation.coordinate //CLLocationCoordinate2D(latitude: 25.118493, longitude: 55.132774)//
+        carLocation = mapView.userLocation.coordinate
         saveLocation(latitude: carLocation!.latitude, longitude: carLocation!.longitude)
         let pin = MKPointAnnotation()
         pin.coordinate = carLocation!
